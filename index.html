@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="阿可（ReAkh）AI：多模型对话、AI 队友、PPT 与数据分析等能力，适合学习与日常创作。杭州开云集致科技有限公司（ClouGence）。"
+    />
+    <title>阿可（ReAkh）AI — 产品介绍</title>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --bg-soft: #111a2e;
+        --card: #151f33;
+        --text: #e8edf7;
+        --muted: #9aa8c3;
+        --accent: #3b82f6;
+        --accent-dim: #2563eb;
+        --border: rgba(148, 163, 184, 0.18);
+        --radius: 14px;
+        --max: 1040px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          'PingFang SC',
+          'Hiragino Sans GB',
+          'Microsoft YaHei',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background:
+          radial-gradient(1200px 600px at 10% -10%, rgba(59, 130, 246, 0.18), transparent 55%),
+          radial-gradient(900px 500px at 100% 0%, rgba(99, 102, 241, 0.12), transparent 50%), var(--bg);
+        color: var(--text);
+        line-height: 1.65;
+        font-size: 16px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+        color: #60a5fa;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        background: rgba(11, 18, 32, 0.85);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 64px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text);
+      }
+      .brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        font-size: 0.9rem;
+      }
+      .nav-links a {
+        color: var(--muted);
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .hero {
+        padding: 56px 0 40px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
+      }
+      @media (max-width: 820px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+      h1 {
+        font-size: clamp(1.75rem, 4vw, 2.35rem);
+        line-height: 1.2;
+        margin: 0 0 16px;
+        font-weight: 800;
+      }
+      .lead {
+        color: var(--muted);
+        font-size: 1.05rem;
+        margin: 0 0 24px;
+        max-width: 36em;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+        color: #fff;
+        border: none;
+        cursor: default;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .hero-shot {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        background: var(--card);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+      .hero-shot img {
+        width: 100%;
+        height: auto;
+        display: block;
+        vertical-align: middle;
+      }
+      .shot-caption {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+      section {
+        padding: 44px 0;
+      }
+      section.alt {
+        background: rgba(17, 26, 46, 0.55);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      h2 {
+        font-size: 1.45rem;
+        margin: 0 0 8px;
+        font-weight: 700;
+      }
+      .section-desc {
+        color: var(--muted);
+        margin: 0 0 28px;
+        font-size: 0.95rem;
+      }
+      .feature-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+      .feature-block {
+        display: grid;
+        grid-template-columns: minmax(200px, 0.92fr) minmax(240px, 1.08fr);
+        gap: 28px;
+        align-items: center;
+        padding: 26px 22px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+      @media (max-width: 720px) {
+        .feature-block {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          padding: 20px 16px;
+        }
+      }
+      .feature-block__media {
+        text-align: center;
+      }
+      .feature-block__media img {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 14px 42px rgba(0, 0, 0, 0.38);
+        vertical-align: middle;
+      }
+      .feature-block h3 {
+        margin: 0 0 8px;
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+      .feature-tagline {
+        color: #93c5fd;
+        font-weight: 600;
+        margin: 0 0 12px;
+        font-size: 1rem;
+      }
+      .feature-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+      .shot-card {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: var(--bg-soft);
+        overflow: hidden;
+      }
+      .shot-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .shot-card .cap {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .legal-banner {
+        background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.1));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px 22px;
+        margin-bottom: 28px;
+      }
+      .legal-banner strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      .legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+      }
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 22px;
+      }
+      .info-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px 22px;
+        background: var(--card);
+      }
+      .info-card dt {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin: 0 0 4px;
+      }
+      .info-card dd {
+        margin: 0 0 14px;
+        font-size: 0.95rem;
+      }
+      .info-card dd:last-child {
+        margin-bottom: 0;
+      }
+
+      button.linklike {
+        background: none;
+        border: none;
+        color: var(--accent);
+        font: inherit;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
+      }
+      button.linklike:hover {
+        color: #60a5fa;
+      }
+      .legal-dlg {
+        max-width: 720px;
+        width: calc(100vw - 28px);
+        max-height: 92vh;
+        padding: 0;
+        margin: auto;
+        border: none;
+        border-radius: var(--radius);
+        background: #eef2f7;
+        color: #1e293b;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+      }
+      .legal-dlg::backdrop {
+        background: rgba(11, 18, 32, 0.75);
+      }
+      .legal-dlg__shell {
+        position: relative;
+        padding: 44px 20px 20px;
+        max-height: 92vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      .legal-dlg__close {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        z-index: 2;
+        padding: 6px 14px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        color: #334155;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+      .legal-dlg__close:hover {
+        background: #f8fafc;
+      }
+      .legal-doc {
+        font-size: 0.94rem;
+        line-height: 1.65;
+        color: #334155;
+      }
+      .legal-doc h1 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 0 0 0.5rem;
+        color: #0f172a;
+        font-weight: 800;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 12px;
+      }
+      .legal-doc h2 {
+        font-size: 1.05rem;
+        margin: 1.6rem 0 0.65rem;
+        color: #0f172a;
+        font-weight: 700;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 6px;
+      }
+      .legal-doc h3 {
+        font-size: 1rem;
+        margin: 1.2rem 0 0.5rem;
+        color: #0f172a;
+        font-weight: 650;
+      }
+      .legal-doc p {
+        margin: 0 0 0.75rem;
+      }
+      .legal-doc ul {
+        margin: 0 0 0.75rem;
+        padding-left: 1.25rem;
+      }
+      .legal-doc li {
+        margin-bottom: 0.35rem;
+      }
+      .legal-doc strong {
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .legal-doc a {
+        color: #2563eb;
+      }
+      .legal-jump {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: #2563eb;
+        font: inherit;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .legal-jump:hover {
+        color: #1d4ed8;
+      }
+      .legal-doc button[data-open-privacy],
+      .legal-doc button[data-open-terms] {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: #2563eb;
+        font: inherit;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .legal-doc button[data-open-privacy]:hover,
+      .legal-doc button[data-open-terms]:hover {
+        color: #1d4ed8;
+      }
+
+      footer {
+        padding: 28px 0 40px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+    <!-- 部署前可将 REAKH_SITE_ORIGIN 改为你的正式站点根地址（无末尾斜杠），用于「在线体验」按钮跳转。 -->
+    <script>
+      window.REAKH_SITE_ORIGIN = 'https://reakh.clougence.com';
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <div class="brand">
+          <img src="images/akh_logo.png" width="40" height="40" alt="阿可（ReAkh）应用图标" />
+        </div>
+        <nav class="nav-links" aria-label="页面导航">
+          <a href="#features">核心功能</a>
+          <a href="#product-intro">产品展示</a>
+          <a href="#screens">品牌标识</a>
+          <a href="#legal">协议与隐私</a>
+          <a href="#developer">开发者信息</a>
+          <a href="#contact">联系方式</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="eyebrow">ClouGence · 个人学习与日常助手</span>
+            <h1>
+              阿可（ReAkh）AI
+              <br />
+              智能对话与创作助手
+            </h1>
+            <p class="lead">
+              阿可（英文名 ReAkh）适合个人用户在日常学习、写作、演示与数据处理等场景使用：支持多模型选择、可定制的 AI 队友、一键生成
+              PPT、表格数据分析等能力，可在网页与移动应用中使用。
+            </p>
+            <div class="cta-row">
+              <span class="btn">阿可 · ReAkh</span>
+              <a class="btn btn-outline" id="link-open-app" href="#">在线体验</a>
+            </div>
+          </div>
+          <div class="hero-shot" id="product-intro">
+            <img src="images/image.png" alt="阿可（ReAkh）产品介绍：主界面、多模型、AI 队友、PPT 生成、数据分析等界面示意" loading="lazy" />
+            <div class="shot-caption">产品介绍长图：全能 AI 团队、多模型切换、AI 队友、PPT 生成、数据分析等能力展示。</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt" id="legal">
+        <div class="wrap">
+          <div class="legal-banner">
+            <strong>用户协议与隐私政策</strong>
+            <p style="margin: 0 0 14px; color: var(--muted); font-size: 0.92rem">
+              使用阿可前，建议阅读《用户协议》与《隐私政策》，了解服务范围与个人信息处理规则。点击下方标题即可在页面内查看全文。
+            </p>
+            <div class="legal-links">
+              <button type="button" id="btn-open-terms" class="linklike">《阿可 AI 用户协议》</button>
+              <button type="button" id="btn-open-privacy" class="linklike">《阿可 AI 隐私政策》</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="wrap">
+          <h2>核心功能</h2>
+          <p class="section-desc">以下为阿可的重点能力示意，界面与功能以各端实际版本为准。</p>
+          <div class="feature-showcase">
+            <article class="feature-block">
+              <div class="feature-block__media">
+                <img src="images/feature-01-multi-model.png" alt="多模型切换：在同一入口选择 Qwen、DeepSeek、GLM、Kimi 等模型" loading="lazy" />
+              </div>
+              <div class="feature-block__body">
+                <h3>多模型切换</h3>
+                <p class="feature-tagline">一个入口，用遍主流大模型</p>
+                <p class="feature-copy">不必在不同产品间来回切换：在阿可里用统一对话界面，即可按场景选用多款主流大模型，兼顾速度、成本与回答风格。</p>
+              </div>
+            </article>
+            <article class="feature-block">
+              <div class="feature-block__media">
+                <img src="images/feature-02-ai-teammates.png" alt="AI 队友：旅行规划、健身、投资等个性化智能体" loading="lazy" />
+              </div>
+              <div class="feature-block__body">
+                <h3>AI 队友</h3>
+                <p class="feature-tagline">写方案、做分析、改代码，多角色同时参与</p>
+                <p class="feature-copy">
+                  为不同任务准备专属「队友」——如旅行规划、健身指导、市场分析等。按需生成或选用队友，用对话完成从资料整理到成稿的多个步骤。
+                </p>
+              </div>
+            </article>
+            <article class="feature-block">
+              <div class="feature-block__media">
+                <img src="images/feature-03-ppt.png" alt="PPT 生成：一句话生成带目录与内页的演示文稿" loading="lazy" />
+              </div>
+              <div class="feature-block__body">
+                <h3>PPT 生成</h3>
+                <p class="feature-tagline">一句话，生成完整 PPT</p>
+                <p class="feature-copy">
+                  用自然语言描述主题与受众，阿可帮你搭好封面、目录与内容页结构，适合课堂展示、读书报告与小型分享会等个人场景。
+                </p>
+              </div>
+            </article>
+            <article class="feature-block">
+              <div class="feature-block__media">
+                <img src="images/feature-04-data-analysis.png" alt="数据分析：上传表格后生成摘要与可视化说明" loading="lazy" />
+              </div>
+              <div class="feature-block__body">
+                <h3>数据分析</h3>
+                <p class="feature-tagline">不用盯表格，一眼看懂数据</p>
+                <p class="feature-copy">
+                  上传常见表格文件，用对话说明你想了解的问题：阿可协助提炼关键指标、趋势与结论，并配合图表化呈现，减轻整理与汇报负担。
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt" id="screens">
+        <div class="wrap">
+          <h2>品牌标识</h2>
+          <p class="section-desc">
+            页首为完整
+            <strong>产品介绍长图</strong>
+            下方为应用主标识与辅助标识，便于与客户端图标对照。
+          </p>
+          <div class="shots">
+            <div class="shot-card">
+              <img src="images/akh_logo.png" alt="阿可（ReAkh）主标识" loading="lazy" />
+              <div class="cap">主标识 / 应用图标风格示意</div>
+            </div>
+            <div class="shot-card">
+              <img src="images/akh_logo2.png" alt="阿可（ReAkh）辅助标识" loading="lazy" />
+              <div class="cap">辅助标识</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="developer">
+        <div class="wrap">
+          <h2>开发者信息</h2>
+          <p class="section-desc">与产品内法律文档主体保持一致。</p>
+          <div class="info-grid">
+            <dl class="info-card">
+              <dt>应用名称</dt>
+              <dd>
+                中文：
+                <strong>阿可</strong>
+                ；英文：
+                <strong>ReAkh</strong>
+              </dd>
+              <dt>运营主体</dt>
+              <dd>
+                <strong>杭州开云集致科技有限公司</strong>
+                及其关联方（ClouGence / 开云集致）
+              </dd>
+            </dl>
+            <dl class="info-card" id="contact">
+              <dt>联系方式</dt>
+              <dd>
+                支持邮箱：
+                <a href="mailto:cloudcanal_support@clougence.com">cloudcanal_support@clougence.com</a>
+              </dd>
+              <dt>说明</dt>
+              <dd>本页为产品介绍与品牌说明；实际功能与数据处理方式以线上产品为准。</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p style="margin: 0 0 8px">
+          ©
+          <span id="y"></span>
+          杭州开云集致科技有限公司（ClouGence）· 阿可（ReAkh）AI
+        </p>
+        <p style="margin: 0">
+          <button type="button" id="foot-btn-terms" class="linklike">用户协议</button>
+          ·
+          <button type="button" id="foot-btn-privacy" class="linklike">隐私政策</button>
+        </p>
+      </div>
+    </footer>
+
+    <dialog id="dlg-terms" class="legal-dlg">
+      <div class="legal-dlg__shell">
+        <form method="dialog">
+          <button type="submit" class="legal-dlg__close">关闭</button>
+        </form>
+        <div class="legal-doc">
+          <h1>阿可 AI 用户协议</h1>
+          <p>更新日期：2026年4月22日</p>
+          <p>生效日期：2026年4月22日</p>
+
+          <p>
+            欢迎您使用阿可
+            AI（以下简称“本服务”）。本服务由杭州开云集致科技有限公司及其关联方（以下合称“我们”）以网页、应用程序等方式提供与运营。为使用本服务，您应当认真阅读并充分理解本《阿可
+            AI 用户协议》（以下简称“本协议”）以及我们不时发布的相关规则、页面提示、产品功能说明等（与本协议合称“全部协议/规则”）。
+          </p>
+
+          <p>
+            <strong>特别提示：</strong>
+            若您不同意本协议任一条款，请立即停止使用本服务。您通过点击确认/勾选同意或实际使用本服务，即表示您已阅读并同意受本协议约束。
+          </p>
+
+          <p>
+            如需了解我们如何处理个人信息与数据，请另行阅读
+            <button type="button" data-open-privacy="">《阿可 AI 隐私政策》</button>
+            。
+          </p>
+
+          <h2>1. 协议的成立与变更</h2>
+          <p>您同意本协议或使用本服务，即表示您与我们就本协议成立具有法律约束力的协议关系。</p>
+          <p>
+            我们可能基于法律法规、监管要求、产品功能调整或运营需要对本协议进行更新。更新后的协议将以站内公告、弹窗、页面展示或其他合理方式提示您，并自公示之日起生效（或按提示的生效日期生效）。
+          </p>
+          <p>若您不同意更新后的协议，应当立即停止使用本服务；若您继续使用本服务，视为您接受更新后的协议。</p>
+
+          <h2>2. 账户与使用资格</h2>
+          <p>
+            您应当具备与您使用本服务相适应的民事行为能力。如您未满 18 周岁，应在监护人同意与指导下使用本服务，并由监护人对您的使用行为承担相应责任。
+          </p>
+          <p>您应按页面要求提供真实、准确、合法、有效的信息，并保持及时更新。因信息不真实、不准确或不完整导致的后果由您自行承担。</p>
+          <p>您应妥善保管账户信息及验证码/密码，不得转让、出借、出租、出售或以其他方式允许他人使用您的账户。</p>
+          <p>若您发现账户被未经授权使用，应及时通过邮箱通知我们；我们将依据合理可行的方式协助处理。</p>
+
+          <h2>3. 服务使用规则</h2>
+          <p>
+            我们向您提供生成式 AI
+            与智能体相关服务。由于技术迭代与合规要求，我们可能对服务进行新增、升级、修改、限制、中断或终止（含对部分功能开展测试）。
+          </p>
+          <p>
+            您理解并同意：本服务的输出由人工智能模型生成/答复，可能存在错误或遗漏，仅供您参考；输出不构成我们的承诺或保证，也不构成专业建议或法律意见。
+          </p>
+          <p>
+            如您将输出用于医疗、法律、金融、投资、保险、招聘、教育、关键基础设施、公共安全等专业或高风险场景，您应当自行进行专业核验并承担全部后果；必要时应咨询专业人士并在其指导下作出决策。
+          </p>
+          <p>
+            您根据输出内容作出的任何判断、决定或后续操作行为所带来的后果和责任均由您自行承担，包括因对输出内容的真实性、准确性、可靠性、非侵权或满足特定目的的依赖而产生的风险。您应科学理性认识和依法使用生成式人工智能技术。
+          </p>
+          <p>
+            您理解并同意：本服务可能根据您的授权调用工具或第三方服务（例如联网检索、文件读写、代码执行、第三方 API
+            调用、发送请求等）。您应当在授权前确认相应权限范围，并对授权后的行为后果承担责任。
+          </p>
+          <p>您不得指示本服务从事任何违法违规、侵权、规避风控、越权访问、破坏系统或对抗审查的行为，包括但不限于反向诱导、提示词注入等。</p>
+          <p>如您将本服务的交付成果向第三方提供、用于对外经营或集成到您的产品/服务中，您应当：</p>
+          <ul>
+            <li>对交付成果进行充分测试与验证；</li>
+            <li>向第三方清晰披露您的主体身份与责任承担方式；</li>
+            <li>自行处理与第三方之间的合同、纠纷与合规义务。</li>
+          </ul>
+          <p>本服务可能集成或接入第三方模型、云服务、工具或 API（“第三方服务”）。第三方服务由其各自的主体提供与负责。</p>
+          <p>
+            您在使用第三方服务时，除遵守本协议外，还应遵守第三方的服务条款、隐私政策与使用规范。因第三方服务导致的中断、错误、损失或争议，我们在法律允许的范围内不承担责任。
+          </p>
+          <p>
+            本服务的沙盒模式旨在降低风险，但无法保证完全隔离或绝对安全。您应对在沙盒或非沙盒环境中执行的代码、脚本、命令、依赖、文件操作等保持谨慎。
+          </p>
+          <p>
+            您不得利用沙盒或其他功能制作、传播或运行恶意程序、病毒、木马、挖矿程序，不得进行渗透、扫描、攻击、入侵、干扰、破坏等危害网络安全的行为。
+          </p>
+          <p>
+            如您授权本服务读取/处理您设备或云端的文件、数据源或凭证（如 API
+            Key、数据库连接信息等），您应确保有权授权并采取必要的访问控制与最小权限原则；由此产生的泄露、误用或损失风险由您自行承担（法律法规另有规定的除外）。
+          </p>
+
+          <h2>4. 输入与输出</h2>
+          <p>
+            <strong>输入权属：</strong>
+            在您与我们之间，除法律另有规定或双方另有约定外，您保留对您输入内容享有的权利。您保证您对输入拥有必要的权利、授权与许可，且输入与其使用不侵犯任何第三方的知识产权、人格权、商业秘密、个人信息权益等。
+          </p>
+          <p>
+            <strong>输出权属：</strong>
+            在适用法律允许的范围内，我们不主张输出内容的所有权；您可在遵守本协议与适用法律法规的前提下使用输出。鉴于生成式 AI
+            的技术特性，输出可能并非唯一，其他用户可能获得相同或相似输出。
+          </p>
+          <p>
+            <strong>内容合规与敏感信息：</strong>
+            您不得输入或处理涉及国家秘密、受法律保护的敏感数据、未获授权的个人信息/隐私信息、商业秘密或其他可能危害国家安全、公共利益或第三方合法权益的数据。
+          </p>
+          <p>
+            <strong>用于服务改进的授权：</strong>
+            为提供与改进本服务（包括安全风控、质量评估、功能优化、模型/系统改进等），在符合法律法规并采取必要的安全措施（如加密、去标识化/匿名化、访问控制等）的前提下，我们可能收集您在本服务中的输入与输出，用于服务优化。
+          </p>
+
+          <h2>5. 使用规范与禁止行为</h2>
+          <p>您应遵守适用的法律法规、监管政策与公序良俗，不得利用本服务生成、发布、传播或协助传播违法或不良信息。</p>
+          <p>您不得实施或协助实施以下行为（包括但不限于）：</p>
+          <ul>
+            <li>反对宪法所确定的基本原则，危害国家安全、泄露国家秘密、颠覆国家政权、破坏国家统一；</li>
+            <li>传播淫秽色情、赌博、暴力、凶杀、恐怖、教唆犯罪等内容；</li>
+            <li>侵害他人名誉权、隐私权、肖像权、个人信息权益、知识产权或其他合法权益；</li>
+            <li>生成或传播虚假信息、谣言，扰乱社会秩序或经济秩序；</li>
+            <li>以自动化方式批量抓取、复制、镜像本服务内容，或对本服务进行反向工程、反编译、反汇编、探测漏洞、绕过技术保护措施；</li>
+            <li>进行不当商业营销、垃圾信息投放，或利用本服务实施诈骗、传销等；</li>
+            <li>利用本服务实施越权访问、账号盗用、钓鱼、恶意爬虫、DDoS 等。</li>
+          </ul>
+          <p>
+            为履行合规义务与平台治理需要，我们有权采用技术手段对输入、输出与使用行为进行审查、过滤、风险识别与处置（包括但不限于添加风险提示、限制功能、删除内容、暂停或终止服务等）。
+          </p>
+
+          <h2>6. AI 生成/合成标识与对外发布</h2>
+          <p>为满足法律法规或平台治理要求，我们对生成/合成内容添加显式或隐式标识（如水印、元数据标识、界面提示等）。</p>
+          <p>您不得删除、篡改、伪造或以其他误导方式处理上述标识。</p>
+          <p>如您对外发布或传播由本服务生成的内容，您应按法律法规与平台规则进行显著标识与必要说明，并对传播后果承担责任。</p>
+
+          <h2>7. 知识产权</h2>
+          <p>
+            除本协议另有约定外，本服务及其相关内容（包括但不限于软件、界面、架构、模型/算法相关实现、商标标识、图文素材、音视频、版式设计等）的知识产权及相关权益归我们或权利人所有。
+          </p>
+          <p>未经我们书面许可，您不得以任何方式使用我们的商标、商号、域名、产品名称、Logo 等标识，不得实施可能导致混淆或误导的行为。</p>
+          <p>
+            您理解、确认并承诺：您在使用本服务时所提交、上传或以其他方式提供的输入内容（包括但不限于文字、图片、音频、视频等各种形式的内容，以及其中包含的文本、音乐、声音、图形图像、视觉设计、作品等全部组成部分）是由您原创、您对其享有完整权利，或您已就该等内容取得充分、合法、有效的授权。输入内容所涉及的知识产权、所有权、人格权、数据权益及/或其他相关权益由您及/或向您授权的第三方依法享有。您保证输入内容的提供与使用不侵犯任何第三方的知识产权、人格权、数据权益、商业秘密等合法权益。否则，因此产生的包括但不限于侵权责任在内的一切法律责任均由您自行承担。
+          </p>
+          <p>
+            您及/或原权利人对输入内容依法享有的权利不因您使用本服务而发生转移或改变。在您与我们之间，在适用法律允许的范围内，您对本服务输出内容依法享有的知识产权及相关权益归属于您。为提升您使用本服务的用户体验，并使相关内容获得更好的分享与推广，就输入内容以及您对输出内容所享有的知识产权及相关权益（如有），您同意授予我们和/或我们的关联方一项免费的、无需标注您个人身份的、全球范围内的使用许可，使我们得在法律允许的范围内使用该等内容（包括但不限于用于产品与服务的提升与优化、品牌推广与宣传等）。
+          </p>
+
+          <h2>8. 费用与订阅</h2>
+          <p>本服务的部分功能可能以付费方式提供。具体收费标准、计费方式、权益范围、有效期与退款规则以页面展示或具体规则为准。</p>
+          <p>您理解并同意：为保障服务交付，我们可能在您未按时支付费用时限制或暂停相关付费功能的使用。</p>
+
+          <h2>9. 违约处理与服务中断/终止</h2>
+          <p>
+            若您违反本协议或相关规则，我们有权独立判断并视情况采取措施，包括但不限于警示、限制功能、删除内容、暂停或终止服务、封禁账户、追究法律责任等。
+          </p>
+          <p>
+            因合规要求、系统维护、不可抗力、第三方服务故障等原因导致服务中断、变更或终止的，我们将尽合理努力进行提示或修复，但不对由此产生的损失承担责任（法律法规另有规定的除外）。
+          </p>
+          <p>您可按产品提供的路径申请注销账户。账户注销后，我们仍可能依据法律法规要求保留必要信息与记录，或就您注销前的违法违规/违约行为追究责任。</p>
+          <p>
+            如因您违反本协议、适用法律法规或侵害第三方权利导致我们或我们的关联方、合作方、员工遭受损失（包括但不限于行政处罚、仲裁/诉讼费用、律师费、调查取证费用、赔偿金等），您应承担全部赔偿责任并使我们免受损害。
+          </p>
+
+          <h2>10. 免责声明</h2>
+          <p>
+            本服务按“现状”与“现有可用性”提供。在法律法规允许的范围内，我们不对本服务的适用性、连续性、及时性、安全性、准确性、完整性、可靠性、稳定性、无错误性、非侵权性作任何明示或暗示保证。
+          </p>
+          <p>
+            您理解并同意：本服务提供的所有输出均由人工智能模型生成/答复，具有概率性与不确定性，可能出现错误或遗漏，仅供您参考。输出不构成阿可 AI
+            在法律上的意思表示，亦不构成任何专业建议或承诺，更不代表任何专业领域的意见。
+          </p>
+          <p>
+            特别地，当您使用本服务咨询医疗、法律、金融及其他专业问题时，您应另行咨询专业人士，并在专业人士的指导下作出决策。本服务输出不应成为您进一步作为或不作为的依据。您根据输出内容作出的任何判断、决定或后续操作行为所带来的后果和责任均由您自行承担。
+          </p>
+          <p>
+            输出可能与第三方内容相同或相似，且可能包含不准确、过时、带偏见、不可用或不适当的信息。我们不保证输出满足您的特定目的，亦不保证输出不会侵犯任何第三方权利。您应自行进行必要的核验、风险评估与合规处理（包括但不限于引用来源核查、版权/授权确认、事实核验、敏感信息审查等）。
+          </p>
+          <p>
+            您理解并同意：工具调用、多模型切换、联网检索、沙盒执行等能力可能引入额外风险（包括但不限于第三方服务故障、网络环境不稳定、执行结果不可控、文件误操作、数据泄露或被滥用等）。除法律法规另有规定外，由此产生的风险与损失由您自行承担。
+          </p>
+          <p>
+            因不可抗力、政策监管、系统维护升级、通信线路或网络原因、第三方服务故障、黑客攻击或其他非我们可控原因导致的服务中断、延迟、数据丢失或输出异常，我们将在合理范围内尽力修复或协助，但在法律允许的范围内不承担责任。
+          </p>
+          <p>
+            如因您输入的内容违法违规、侵权或含有恶意指令导致的任何后果，由您自行承担；我们有权按规则采取处置措施。您应科学理性认识和依法使用生成式人工智能技术。
+          </p>
+          <p>
+            在法律法规允许的最大范围内，我们对因使用或无法使用本服务而产生的任何直接、间接、附带、特殊、衍生、惩罚性损害不承担责任，包括但不限于利润损失、商誉损失、数据丢失、业务中断等。除法律法规另有明确规定外，我们对您承担的全部责任，无论因何种原因或何种行为方式产生，始终不超过您因使阿可
+            AI 产品及服务期间而向我们支付的费用总额（如有）。
+          </p>
+
+          <h2>11. 其他</h2>
+          <p>本协议部分条款无效不影响其他条款效力。</p>
+          <p>本协议标题仅为阅读方便，不影响条款含义。</p>
+          <p>本协议的订立、生效、履行、解释及争议解决适用中华人民共和国法律（不含冲突规范）。</p>
+          <p>
+            因本协议产生的或与本协议有关的争议，双方应先友好协商；协商不成的，任一方可向杭州开云集致科技有限公司住所地有管辖权的人民法院提起诉讼。
+          </p>
+          <p>
+            如您对本协议或本服务有任何意见、建议或投诉举报，请通过电子邮箱（
+            <a href="mailto:cloudcanal_support@clougence.com">cloudcanal_support@clougence.com</a>
+            ）联系我们。
+          </p>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="dlg-privacy" class="legal-dlg">
+      <div class="legal-dlg__shell">
+        <form method="dialog">
+          <button type="submit" class="legal-dlg__close">关闭</button>
+        </form>
+        <div class="legal-doc">
+          <h1>阿可 AI 隐私政策</h1>
+          <p>更新日期：2026年4月22日</p>
+          <p>生效日期：2026年4月22日</p>
+
+          <p>
+            阿可
+            AI（以下简称“本服务”）由杭州开云集致科技有限公司及其关联方（以下合称“我们”）提供与运营。我们深知个人信息对您的重要性，并将按照适用的法律法规并参照行业通行安全标准保护您的个人信息及隐私安全。
+          </p>
+          <p>
+            本《阿可 AI
+            隐私政策》（以下简称“本政策”）旨在向您说明我们如何收集、使用、共享、转移（如适用）、公开披露（如适用）、存储与保护您的个人信息，以及您如何行使相关权利。
+          </p>
+          <p>
+            如您不同意本政策的任何内容，您应立即停止使用本服务。您点击确认/勾选同意或使用本服务，即表示您已充分阅读、理解并同意我们按照本政策处理您的个人信息。
+          </p>
+
+          <h2>1. 我们如何收集和使用个人信息</h2>
+          <p>
+            我们会基于以下目的，在实现功能所必需的范围内收集和使用您的个人信息。我们可能处理的个人信息类型主要包括：账号信息、身份验证信息、联系方式、设备信息、日志信息、交易信息、您主动提供的内容与文件、以及与沙盒/工具调用相关的任务执行数据等。
+          </p>
+
+          <h3>1.1 账号注册与登录</h3>
+          <p>
+            <strong>1.1.1</strong>
+            当您注册、登录本服务时，需要向我们提供真实、准确、完整、有效的注册信息和资料（“注册信息”），以便我们为您创建账号。您可以通过手机号码创建账号，我们会使用您的手机号码向您发送验证码。手机号码属于履行国家法律法规关于网络实名制要求的必要信息，您应当使用您本人的手机号码进行注册。如果您不提供手机号码用于注册、登录，或者您不创建账号的，我们可能无法为您提供本服务的全部功能和服务。
+          </p>
+          <p>
+            <strong>1.1.2</strong>
+            您也可以使用第三方账号注册、登录并使用本服务。本服务支持的第三方账号类型以产品页面实际显示为准。经您授权同意，我们将获取您在第三方平台的注册信息（如头像、昵称、用户名以及您授权的其他信息），用于创建与该第三方账号绑定的本服务账号，使您可以直接注册、登录并使用本服务。如果您拒绝前述信息的收集与使用，将无法使用第三方账号注册、登录本服务，但不影响您通过其他方式注册、登录。
+          </p>
+          <p>
+            <strong>1.1.4</strong>
+            注册、登录完成后，您可以设置和完善账号信息（如头像、昵称、绑定第三方账号等）。您知悉并同意，您的头像、昵称可能会在本服务的相关页面被公开展示（以产品实际功能为准）。
+          </p>
+
+          <h3>1.2 智能对话与内容生成</h3>
+          <p>
+            <strong>1.2.1</strong>
+            当您使用对话、生成功能时，我们会处理您主动提供的内容与操作信息，包括：
+          </p>
+          <ul>
+            <li>a. 输入内容：文字、图片、音频、视频、文件、链接、数据集、提示词、指令、参数、配置等</li>
+            <li>b. 输出内容：模型生成的回复、生成文件（如 PPT/文档/表格/代码）、数据分析结果等</li>
+          </ul>
+          <p>
+            <strong>1.2.2</strong>
+            为实现图片/语音/文件上传等功能，我们可能在首次使用时请求您授权相机、相册/存储、麦克风等权限；您拒绝授权将导致对应功能不可用，但不影响其他功能。
+          </p>
+          <p>
+            <strong>1.2.3</strong>
+            当您使用沙盒执行代码、脚本或命令时，我们可能为实现功能与安全目的处理您提供的代码/脚本/命令及其参数、执行输出（标准输出/错误输出）、生成文件与运行日志等。我们不会因提供沙盒能力而默认获取您的系统权限；沙盒权限范围以产品页面展示与您的授权为准。
+          </p>
+
+          <h3>1.3 意见反馈</h3>
+          <p>
+            当您联系在线客服、提交工单、反馈问题或参与调研时，我们可能收集联系方式（如手机号/邮箱）、您提供的反馈内容、截图/录屏、日志信息、以及与问题处理相关的必要信息。
+          </p>
+
+          <h3>1.4 支付服务</h3>
+          <p>
+            <strong>1.4.1</strong>
+            您可以订购本服务的付费服务。您在订购付费服务过程中需要完成支付。为完成交易并向您提供相应权益，我们可能会收集与使用您的订单信息与支付结果信息（例如订单号、商品/服务名称、金额、下单与支付时间、交易状态等）。在您选择使用第三方支付机构完成支付时，您的支付行为将由该第三方支付机构处理；我们可能会获取与您的第三方支付账号相关的必要标识信息（如支付宝账号等，以您实际使用的支付方式为准）以及第三方返回的支付结果信息，以便完成订单处理、对账与售后服务。
+          </p>
+          <p>
+            <strong>1.4.2</strong>
+            您可以就已完成订购的付费服务向我们申请开具发票。根据您申请的发票类型不同，我们将收集并使用以下信息中的一项或多项：邮箱地址、发票抬头（个人姓名或单位名称）、单位税号、单位地址及电话、开户行名称及账号、专票证明、委托关系证明等，用于为您开具与交付发票及进行必要的合规留存。如您拒绝提供上述必要信息或提供的信息不准确/不完整，我们将可能无法为您开具发票；您可以更正、补充或重新提交准确、必要的信息。
+          </p>
+
+          <h3>1.5 消息通知</h3>
+          <p>
+            您知悉并同意：在您使用本产品及/或服务过程中向我们提供的联系方式（例如联系电话、邮箱等），我们可能在运营中向其中一种或多种发送多类通知，用于用户消息告知、身份验证与安全验证、服务相关告知、用户体验调研、争议处理及客户服务等目的。
+          </p>
+          <p>
+            此外，我们也可能通过前述联系方式（例如向手机号码发送短信/拨打电话，或向邮箱发送邮件）向您发送与本产品及/或服务相关的功能、服务或活动等商业性信息。如您不愿接收上述商业性信息，您可通过短信或邮件中提供的退订方式进行退订（例如按短信提示回复指定内容，具体以短信/邮件说明为准），或通过本产品内的设置入口及/或联系我们渠道申请退订。我们将在收到您的退订请求后及时处理。
+          </p>
+
+          <h3>1.6 设备信息、日志信息与安全风控</h3>
+          <p>
+            为保障您使用本软件时系统的稳定运行与安全，防止个人信息被非法获取，并更准确地进行风险识别、防范欺诈与保护账号安全，我们可能需要收集并使用您的设备与日志相关信息，包括但不限于：设备名称、设备品牌/型号/规格、设备厂商信息，设备标识信息（如
+            IMEI/MEID/AndroidID/OpenUDID/IMSI/IDFA/OAID 及其他基于综合设备参数形成的设备标识符），设备网络信息（如 IP 地址、运营商信息、网络类型/网络
+            ID
+            等），系统与环境信息（如操作系统版本、国家/语言/时区设置、分辨率、系统更新时间及识别符等），以及与安全风控相关的登录信息（如手机号码、短信验证码验证记录等）。在必要范围内，我们还可能记录并识别我们认为存在风险的链接（URL），用于风险研判与安全处置。
+          </p>
+          <p>
+            同时，上述信息亦可能用于系统问题分析、统计与性能优化、故障排查、反作弊与内容安全治理；当您选择向我们提交异常信息/日志用于排查时，我们将基于您提交的内容进行定位与处理。如您拒绝提供与安全风控直接相关的必要信息，我们可能无法在您使用本服务过程中有效识别风险并提供相应的安全保障，进而可能影响您使用部分功能或服务体验。
+          </p>
+
+          <h3>1.7 改善服务</h3>
+          <p>
+            <strong>1.7.1</strong>
+            我们可能收集您在使用本产品过程中的操作与使用行为信息，包括但不限于点击、浏览、关注、点赞/点踩、纠错/反馈、分享、上传、下载、发布、搜索、历史记录管理等，用于向您提供相关功能与服务、进行效果评估与体验优化、改进服务质量与保障服务安全稳定。
+          </p>
+          <p>
+            <strong>1.7.2</strong>
+            在经过安全加密技术处理、对相关信息进行去标识化/匿名化处理、无法重新识别特定个人的前提下，我们可能对您的输入内容、输出内容及上述行为信息进行统计分析，以持续提升产品体验。
+          </p>
+          <p>
+            <strong>1.7.3</strong>
+            我们可能将去标识化/匿名化后的信息单独或结合使用，用于数据统计与分析（例如统计用户数量与来源、分析产品使用情况、定位与解决故障、开展内部审计、数据分析与研究等），并可能借助第三方
+            SDK 的统计分析服务实现上述目的，以不断改进本产品并为您提供更优质的服务。
+          </p>
+
+          <h3>1.8 收集、使用个人信息的其他规则</h3>
+          <p>
+            我们将依据适用法律法规，在以下合法性基础下处理个人信息：取得您的同意、为订立/履行合同所必需、履行法定义务、应对突发公共卫生事件或保护生命健康与财产安全、为公共利益实施新闻报道/舆论监督、处理您自行公开或已合法公开的信息、法律法规规定的其他情形。在法律允许的情形下，我们可能无需另行征得您的同意。
+          </p>
+
+          <h2>2. 我们如何使用 Cookie 和同类技术</h2>
+          <p>Cookie 和同类技术（例如本地存储、匿名标识符等）是互联网的通用技术。我们可能使用 Cookie 和同类技术以实现：</p>
+          <ul>
+            <li>a. 保障产品与服务的安全、高效运转（如登录态维持、风控识别）</li>
+            <li>b. 记住您的偏好与设置（如语言、历史对话列表展示）</li>
+            <li>c. 统计分析与性能优化（如故障分析、页面访问统计）</li>
+          </ul>
+          <p>
+            我们不会将 Cookie 用于本政策所述目的之外的任何其他用途。您可以在浏览器或系统设置中管理或清除
+            Cookie；但请注意，停用相关技术可能影响部分功能的可用性或体验。
+          </p>
+
+          <h2>3. 我们如何委托处理、共享、转移、公开披露个人信息</h2>
+          <h3>3.1 共享</h3>
+          <p>我们不会与任何公司、组织和个人共享您的个人信息，除非存在以下一种或多种情形：</p>
+          <ul>
+            <li>a. 事先获得您的明确同意或授权</li>
+            <li>b. 为实现您所使用的功能所必需（例如接入第三方支付、短信服务、统计分析等）</li>
+            <li>c. 根据适用法律法规、法律程序或有权机关要求</li>
+            <li>d. 为维护我们及用户的合法权益或公共安全所必需</li>
+          </ul>
+
+          <h3>3.2 委托处理与共同处理</h3>
+          <p>
+            对于委托处理个人信息的场景，我们将与受托方签署必要的数据处理协议并对其处理活动进行监督。对于共同处理场景，我们将与合作方明确各自责任并依法履行告知义务。
+          </p>
+
+          <h3>3.3 转移</h3>
+          <p>我们不会将您的个人信息转让或转移给任何公司、组织和个人，但以下情形除外：</p>
+          <ul>
+            <li>a. 获得您的明确同意后，我们会向其他方转让或转移您的个人信息；</li>
+            <li>
+              b.
+              在涉及合并、收购或破产清算时，如涉及到个人信息转让或转移，我们将要求继受方按照同等标准继续履行个人信息保护义务，若继受方变更原先的处理目的、处理方式的，我们将要求继受方重新征得您的授权同意。
+            </li>
+          </ul>
+
+          <h3>3.4 公开披露</h3>
+          <p>公开披露是指向社会或不特定公众发布信息的行为。我们仅会在以下情形下，公开披露您的个人信息：</p>
+          <ul>
+            <li>a. 获得您明确同意后；</li>
+            <li>b. 基于法律的披露：在法律、法律程序、诉讼或政府主管部门强制性要求的情况下，我们可能会公开披露您的个人信息。</li>
+            <li>c. 您主动公开披露、公开发布的信息内容；</li>
+            <li>d. 相关法律法规规定的其他情形。</li>
+          </ul>
+
+          <h2>4. 我们如何存储个人信息</h2>
+          <p>
+            <strong>4.1</strong>
+            我们在中华人民共和国境内收集和产生的个人信息将存储于中华人民共和国境内。
+          </p>
+          <p>
+            <strong>4.2</strong>
+            我们仅在实现处理目的所必需的最短期限内保存您的个人信息，法律法规另有规定或您另行同意的除外。超期后我们将删除或匿名化处理，或在法律允许范围内进行去标识化存储。
+          </p>
+          <p>
+            <strong>4.3</strong>
+            当您注销账号后，我们将根据法律法规与业务必要性对相关数据进行删除或匿名化处理；法律法规要求留存的，我们将依法保存并在到期后处理。
+          </p>
+
+          <h2>5. 我们如何保护个人信息安全</h2>
+          <p>我们非常重视个人信息安全，并将采取合理可行的措施保护您的个人信息：</p>
+
+          <h3>5.1 数据安全技术措施</h3>
+          <p>
+            我们将采用符合业界标准的安全防护措施及行业通行的安全技术，防止您的个人信息遭到未经授权的访问、使用、披露、修改、损坏或丢失，包括但不限于：
+          </p>
+          <p>
+            （1）在合理可行范围内，对个人信息进行加密存储与加密传输，并通过访问控制、权限管理、身份鉴别等机制设置严格的数据访问权限，降低未授权访问风险。
+          </p>
+          <p>
+            （2）建立并持续完善内部安全管理制度，开展人员安全培训与权限最小化管理；我们可能不定期组织安全评审、渗透测试或引入专业安全人员/机构对系统安全性进行检查与改进，以提升整体安全防护水平。
+          </p>
+
+          <h3>5.2 安全事件处置</h3>
+          <p>
+            （1）如发生个人信息安全事件，我们将按照法律法规要求，及时向您告知事件的基本情况与可能影响、我们已采取或将要采取的处置措施、您可自主防范和降低风险的建议，以及对您的补救措施等。我们将通过站内通知、推送、邮件、电话、短信、公告等一种或多种方式进行告知；当难以逐一告知时，我们将采取合理、有效的方式发布公告。同时，我们将按监管部门要求主动上报并配合处置。
+          </p>
+          <p>
+            （2）尽管我们将尽力采取并持续加强安全措施，但请您理解，互联网环境并非绝对安全，且可能存在各类不可预见的攻击手段与风险因素，我们无法保证个人信息始终百分之百安全。您理解并同意，您使用本服务所依赖的系统与通信网络也可能因超出我们控制范围的因素发生安全问题。如您发现个人信息泄露，尤其是账号、验证码/密码等凭证泄露，请您立即通过本政策列明的联系方式联系我们，以便我们及时采取相应处置措施。
+          </p>
+
+          <h2>6. 您如何行使个人信息权利</h2>
+          <p>在适用法律法规允许的范围内，您对您的个人信息享有以下权利：</p>
+          <ul>
+            <li>查阅、更正、补充您的个人信息</li>
+            <li>复制、导出您的个人信息（在技术可行范围内）</li>
+            <li>删除您的个人信息（符合法律规定的情形下）</li>
+            <li>改变或撤回授权同意（例如关闭相机/麦克风权限，关闭“数据用于优化体验/帮助改进效果”等开关；撤回不影响此前基于授权已开展的处理）</li>
+            <li>注销账户</li>
+            <li>获取关于个人信息处理规则的解释说明</li>
+          </ul>
+          <p>
+            您可通过 设置-账号
+            行使上述部分权利；如无法通过产品内完成，您可通过本政策“联系我们”与我们联系。我们将依法在验证您的身份后于合理期限内答复您的请求。
+          </p>
+
+          <h2>7. 未成年人信息保护</h2>
+          <p>
+            如您未满 18
+            周岁，请在监护人同意与指导下使用本服务。我们将依据法律法规采取相应措施保护未成年人的个人信息。若我们发现未成年人在未取得监护人同意的情况下向我们提供个人信息，我们将依法尽快删除或采取其他必要措施。
+          </p>
+
+          <h2>8. 本政策的更新</h2>
+          <p>
+            我们可能适时对本政策进行修订。更新后的政策将以站内公告、弹窗提示或其他合理方式通知您，并在公示的生效日期起生效。如更新涉及您的重大权益，我们将以更显著的方式提示您并在必要时重新征得您的同意。
+          </p>
+
+          <h2>9. 如何联系我们</h2>
+          <p>
+            如您对本政策或个人信息保护事宜有任何疑问、意见、建议或投诉举报，请通过电子邮箱（
+            <a href="mailto:cloudcanal_support@clougence.com">cloudcanal_support@clougence.com</a>
+            ）联系我们，我们将依法在验证您的身份后予以回复与处理。
+          </p>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      (function () {
+        var origin = (typeof window !== 'undefined' && window.REAKH_SITE_ORIGIN) || 'https://reakh.clougence.com';
+        origin = String(origin).replace(/\/$/, '');
+        var openApp = document.getElementById('link-open-app');
+        if (openApp) openApp.href = origin + '/chat';
+        var y = document.getElementById('y');
+        if (y) y.textContent = new Date().getFullYear();
+
+        var dlgTerms = document.getElementById('dlg-terms');
+        var dlgPrivacy = document.getElementById('dlg-privacy');
+        function openTerms(e) {
+          if (e) e.preventDefault();
+          if (dlgPrivacy && dlgPrivacy.open) dlgPrivacy.close();
+          if (dlgTerms) dlgTerms.showModal();
+        }
+        function openPrivacy(e) {
+          if (e) e.preventDefault();
+          if (dlgTerms && dlgTerms.open) dlgTerms.close();
+          if (dlgPrivacy) dlgPrivacy.showModal();
+        }
+        [
+          ['btn-open-terms', openTerms],
+          ['foot-btn-terms', openTerms],
+          ['btn-open-privacy', openPrivacy],
+          ['foot-btn-privacy', openPrivacy]
+        ].forEach(function (pair) {
+          var el = document.getElementById(pair[0]);
+          if (el) el.addEventListener('click', pair[1]);
+        });
+        document.querySelectorAll('[data-open-privacy]').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openPrivacy(e);
+          });
+        });
+        document.querySelectorAll('[data-open-terms]').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openTerms(e);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
